@@ -8,4 +8,4 @@ A collection of functions for bidimensional and tridimensional geometry.
 
 ## Submiting a issue
 
-    <todo>
+Go to https://github.com/ihavenonickname/sv-geometry/issues

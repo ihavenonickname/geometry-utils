@@ -11,7 +11,7 @@ setup(
     description='A suite of handy geometry-related functions',
     long_description=README,
     long_description_content_type='text/markdown',
-    url=None,
+    url='https://github.com/ihavenonickname/sv-geometry',
     author='Gabriel Blank Stift Mousquer',
     author_email='gabrielblanksm@gmail.com',
     license='MIT',
