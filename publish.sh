@@ -44,7 +44,8 @@ check_err 'Package malformed'
 
 case "$1" in
 prod)
-    echo '\n\nnot yet!'
+    twine upload dist/*
+    check_err 'Trouble uploading package to pypi.org'
     ;;
 stg)
     python3 -m twine upload --verbose --repository-url https://test.pypi.org/legacy/ dist/*
