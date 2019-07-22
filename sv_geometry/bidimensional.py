@@ -7,6 +7,8 @@ __all__ = [
 def split_trapezium(R, r, H, h):
     '''Split a trapezium in two halves.
 
+    It is supposed to be a right trapezium, i.e. its apex is at its center.
+
     Arguments:
         R (float): Upper radius of the trapezium
         r (float): Lower radius of the trapezium
