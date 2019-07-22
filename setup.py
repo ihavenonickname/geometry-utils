@@ -1,18 +1,12 @@
-import pathlib
-
 from setuptools import setup
 
 from sv_geometry import __version__ as version
 
-HERE = pathlib.Path(__file__).parent
-
-README = (HERE / 'README.md').read_text()
-
 setup(
-    name='sv_geometry',
+    name='sv-geometry',
     version=version,
-    description='A suite of handy geometry-related functions',
-    long_description=README,
+    description='A collection of functions for bidimensional and tridimensional arithmetic geometry.',
+    long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/ihavenonickname/sv-geometry',
     author='Gabriel Blank Stift Mousquer',

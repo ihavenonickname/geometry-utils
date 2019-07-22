@@ -1,5 +1,7 @@
 # SV Geometry
 
+[![CircleCI](https://circleci.com/gh/ihavenonickname/sv-geometry.svg?style=svg)](https://circleci.com/gh/ihavenonickname/sv-geometry)
+
 A collection of functions for bidimensional and tridimensional arithmetic geometry.
 
 ## Installing
