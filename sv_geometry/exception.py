@@ -1,0 +1,2 @@
+class SVGeometryException(Exception):
+    pass
