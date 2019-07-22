@@ -16,7 +16,7 @@ check_err()
     fi
 }
 
-python -m unittest discover --start-directory tests
+python3 -m unittest discover --start-directory tests
 
 check_err 'Fix tests and try again!'
 
