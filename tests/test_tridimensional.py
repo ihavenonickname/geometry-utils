@@ -24,7 +24,7 @@ class Tridimensional(unittest.TestCase):
     def test_volume_right_frustum(self):
         expected = 1162.4
 
-        actual = tridimensional.volume_right_frustum(10, 1, 10)
+        actual = tridimensional.volume_frustum(10, 1, 10)
 
         self.assertAlmostEqual(actual, expected, places=1)
 
@@ -44,13 +44,13 @@ class Tridimensional(unittest.TestCase):
 
     def test_volume_right_frustum_should_fail_with_negative_parameters(self):
             with self.assertRaises(SVGeometryException):
-                tridimensional.volume_right_frustum(-10, 1, 10)
+                tridimensional.volume_frustum(-10, 1, 10)
 
             with self.assertRaises(SVGeometryException):
-                tridimensional.volume_right_frustum(10, -1, 10)
+                tridimensional.volume_frustum(10, -1, 10)
 
             with self.assertRaises(SVGeometryException):
-                tridimensional.volume_right_frustum(10, 1, -10)
+                tridimensional.volume_frustum(10, 1, -10)
 
 if __name__ == '__main__':
     unittest.main()

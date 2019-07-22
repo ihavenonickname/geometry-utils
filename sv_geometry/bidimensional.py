@@ -7,13 +7,13 @@ __all__ = [
 def split_trapezium(R, r, H, h):
     '''Split a trapezium in two halves.
 
-    It is supposed to be a right trapezium, i.e. its apex is at its center.
+    It is expected to be a right trapezium, i.e. its apex is at its center.
 
     Arguments:
-        R (float): Upper radius of the trapezium
-        r (float): Lower radius of the trapezium
-        H (float): Height of the trapezium
-        h (float): Height where the trapezium must be splitted
+        R (float): Upper radius of the trapezium.
+        r (float): Lower radius of the trapezium.
+        H (float): Height of the trapezium.
+        h (float): Height where the trapezium must be splitted.
 
     Returns:
         dict: A dict with two keys, "upper" and "lower", each one containing
@@ -22,7 +22,7 @@ def split_trapezium(R, r, H, h):
         whilst "lower" describes the lower half.
 
     Raises:
-        SVGeometryException: if any argument is less or equal than 0 or if "h"
+        SVGeometryException: If any argument is nonpositive or if "h"
         is greater than "H".
     '''
 

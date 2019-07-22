@@ -5,10 +5,23 @@ from .exception import SVGeometryException
 __all__ = [
     'volume_cylinder',
     'volume_cone',
-    'volume_right_frustum',
+    'volume_frustum',
 ]
 
 def volume_cylinder(h, r):
+    '''Return the volume of the cylinder.
+
+    Arguments:
+        h (float): Height of the cylinder.
+        r (float): Radius of the cylinder.
+
+    Returns:
+        float: The volume of the cylinder.
+
+    Raises:
+        SVGeometryException: If any argument is nonpositive.
+    '''
+
     if h <= 0:
         raise SVGeometryException('Height must be positive')
 
@@ -18,6 +31,19 @@ def volume_cylinder(h, r):
     return math.pi * r * r * h
 
 def volume_cone(h, r):
+    '''Return the volume of the cone.
+
+    Arguments:
+        h (float): Height of the cone.
+        r (float): Radius of the cone.
+
+    Returns:
+        float: The volume of the cone.
+
+    Raises:
+        SVGeometryException: If any argument is nonpositive.
+    '''
+
     if h <= 0:
         raise SVGeometryException('Height must be positive')
 
@@ -26,7 +52,23 @@ def volume_cone(h, r):
 
     return volume_cylinder(h, r) / 3
 
-def volume_right_frustum(h, r, R):
+def volume_frustum(h, r, R):
+    '''Return the volume of the frustum.
+
+    It is expected to be a right frustum, i.e. its apex is at its center.
+
+    Arguments:
+        h (float): Height of the frustum.
+        r (float): Upper radius of the frumstum.
+        R (float): Lower radius of the frumstum.
+
+    Returns:
+        float: The volume of the frustum.
+
+    Raises:
+        SVGeometryException: If any argument is nonpositive.
+    '''
+
     if h <= 0:
         raise SVGeometryException('Height must be positive')
 
