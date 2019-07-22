@@ -5,10 +5,24 @@ __all__ = [
 ]
 
 def split_trapezium(R, r, H, h):
-    R = float(R)
-    r = float(r)
-    H = float(H)
-    h = float(h)
+    '''Split a trapezium in two halves.
+
+    Arguments:
+        R (float): Upper radius of the trapezium
+        r (float): Lower radius of the trapezium
+        H (float): Height of the trapezium
+        h (float): Height where the trapezium must be splitted
+
+    Returns:
+        dict: A dict with two keys, "upper" and "lower", each one containing
+        another dict with keys "upper_radius", "lower_radius" and "H". The
+        "upper" dict describes the property of the upper half of the trapezium,
+        whilst "lower" describes the lower half.
+
+    Raises:
+        SVGeometryException: if any argument is less or equal than 0 or if "h"
+        is greater than "H".
+    '''
 
     if r <= 0:
         raise SVGeometryException('"r" must be greater than 0')
