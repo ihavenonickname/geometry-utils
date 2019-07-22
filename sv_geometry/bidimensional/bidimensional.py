@@ -10,6 +10,6 @@ def split_trapezium(R, r, H, h):
     r_apos = ((h - b) / a)
 
     return {
-        'upper': { 'upper_radius': r, 'lower_radios': r_apos, 'H': H - h },
-        'lower': { 'upper_radius': r_apos, 'lower_radios': R, 'H': h },
+        'upper': { 'upper_radius': r, 'lower_radius': r_apos, 'H': H - h },
+        'lower': { 'upper_radius': r_apos, 'lower_radius': R, 'H': h },
     }
