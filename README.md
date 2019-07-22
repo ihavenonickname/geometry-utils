@@ -1,11 +1,12 @@
 # SV Geometry
 
-A collection of functions for bidimensional and tridimensional geometry.
+A collection of functions for bidimensional and tridimensional arithmetic geometry.
 
 ## Installing
 
-    pip install sv_geometry
+    pip install sv-geometry
 
-## Submiting an issue
+## Relevant links:
 
-Go to https://github.com/ihavenonickname/sv-geometry/issues
+* Official page on PyPI: https://pypi.org/project/sv-geometry/
+* Issue tracker: https://github.com/ihavenonickname/sv-geometry/issues
