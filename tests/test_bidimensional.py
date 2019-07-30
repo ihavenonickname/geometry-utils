@@ -7,27 +7,20 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 from sv_geometry import bidimensional, SVGeometryException
 
 class Bidimensional(unittest.TestCase):
-    def test_split_trapezium(self):
+    def test_split_trapezium_half(self):
         expected = {
-            'upper': { 'upper_radius': 10, 'lower_radius': 15, 'H': 10 },
-            'lower': { 'upper_radius': 15, 'lower_radius': 20, 'H': 10 },
+            'upper': { 'upper_radius': 10, 'lower_radius': 15, 'height': 10 },
+            'lower': { 'upper_radius': 15, 'lower_radius': 20, 'height': 10 },
         }
 
         actual = bidimensional.split_trapezium(10, 20, 20, 10)
 
         self.assertEqual(expected, actual)
 
-        expected = {
-            'upper': { 'upper_radius': 1, 'lower_radius': 1+(3-1)*(1/3), 'H': 2 },
-            'lower': { 'upper_radius': 1+(3-1)*(1/3), 'lower_radius': 3, 'H': 1 },
-        }
+    def test_split_trapezium_quarter(self):
+        actual = bidimensional.split_trapezium(10, 20, 10, 4)
 
-        actual = bidimensional.split_trapezium(1, 3, 3, 1)
-
-        print(expected['upper'])
-        print(actual['upper'])
-
-        self.assertEqual(expected, actual)
+        self.assertGreater(actual['upper']['height'], actual['lower']['height'])
 
     def test_split_trapezium_should_fail_when_h_is_too_large(self):
         with self.assertRaises(SVGeometryException):

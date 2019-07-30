@@ -41,9 +41,9 @@ def split_trapezium(r_top, r_bottom, H, h):
     if H < h:
         raise SVGeometryException('"H" must be greater than "h"')
 
-    x1 = r_top
+    x1 = r_bottom
     y1 = 0.0
-    x2 = r_bottom
+    x2 = r_top
     y2 = H
 
     a = (y2 - y1) / (x2 - x1)
@@ -52,6 +52,14 @@ def split_trapezium(r_top, r_bottom, H, h):
     r_apos = ((h - b) / a)
 
     return {
-        'upper': { 'upper_radius': r_top, 'lower_radius': r_apos, 'H': H - h },
-        'lower': { 'upper_radius': r_apos, 'lower_radius': r_bottom, 'H': h },
+        'upper': {
+            'upper_radius': r_top,
+            'lower_radius': r_apos,
+            'height': H - h
+        },
+        'lower': {
+            'upper_radius': r_apos,
+            'lower_radius': r_bottom,
+            'height': h
+        },
     }
