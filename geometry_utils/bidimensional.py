@@ -1,4 +1,4 @@
-from .exception import SVGeometryException
+from .helper import GeometryUtilsException
 
 __all__ = [
     'split_trapezium'
@@ -22,24 +22,24 @@ def split_trapezium(r_top, r_bottom, H, h):
         whilst "lower" describes the lower half.
 
     Raises:
-        SVGeometryException: If any argument is nonpositive or if "h"
+        GeometryUtilsException: If any argument is nonpositive or if "h"
         is greater than "H".
     '''
 
     if r_bottom <= 0:
-        raise SVGeometryException('"r" must be greater than 0')
+        raise GeometryUtilsException('"r" must be greater than 0')
 
     if r_top <= 0:
-        raise SVGeometryException('"R" must be greater than 0')
+        raise GeometryUtilsException('"R" must be greater than 0')
 
     if H <= 0:
-        raise SVGeometryException('"H" must be greater than 0')
+        raise GeometryUtilsException('"H" must be greater than 0')
 
     if h <= 0:
-        raise SVGeometryException('"h" must be greater than 0')
+        raise GeometryUtilsException('"h" must be greater than 0')
 
     if H < h:
-        raise SVGeometryException('"H" must be greater than "h"')
+        raise GeometryUtilsException('"H" must be greater than "h"')
 
     x1 = r_bottom
     y1 = 0.0

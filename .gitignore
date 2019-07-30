@@ -2,5 +2,5 @@
 **/*.pyc
 dist
 build
-sv_geometry.egg-info
+geometry_utils.egg-info
 .vscode

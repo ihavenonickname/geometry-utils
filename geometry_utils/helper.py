@@ -1,0 +1,2 @@
+class GeometryUtilsException(Exception):
+    pass

@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from sv_geometry import bidimensional, SVGeometryException
+from geometry_utils import bidimensional, GeometryUtilsException
 
 class Bidimensional(unittest.TestCase):
     def test_split_trapezium_half(self):
@@ -23,21 +23,21 @@ class Bidimensional(unittest.TestCase):
         self.assertGreater(actual['upper']['height'], actual['lower']['height'])
 
     def test_split_trapezium_should_fail_when_h_is_too_large(self):
-        with self.assertRaises(SVGeometryException):
+        with self.assertRaises(GeometryUtilsException):
             bidimensional.split_trapezium(1, 1, 2, 3)
 
     def test_split_trapezium_should_fail_when_radius_is_negative(self):
-        with self.assertRaises(SVGeometryException):
+        with self.assertRaises(GeometryUtilsException):
             bidimensional.split_trapezium(-1, 1, 2, 1)
 
-        with self.assertRaises(SVGeometryException):
+        with self.assertRaises(GeometryUtilsException):
             bidimensional.split_trapezium(1, -1, 2, 1)
 
     def test_split_trapezium_should_fail_with_height_is_negative(self):
-        with self.assertRaises(SVGeometryException):
+        with self.assertRaises(GeometryUtilsException):
             bidimensional.split_trapezium(1, 1, -2, 1)
 
-        with self.assertRaises(SVGeometryException):
+        with self.assertRaises(GeometryUtilsException):
             bidimensional.split_trapezium(1, 1, 2, -1)
 
 if __name__ == '__main__':

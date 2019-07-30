@@ -22,7 +22,7 @@ check_err 'Fix tests and try again!'
 
 rm -rf dist/*
 rm -rf build/*
-rm -rf sv_geometry.egg-info/*
+rm -rf geometry_utils.egg-info/*
 
 case "$1" in
 prod)

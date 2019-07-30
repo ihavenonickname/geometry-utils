@@ -1,6 +1,6 @@
 import math
 
-from .exception import SVGeometryException
+from .helper import GeometryUtilsException
 
 __all__ = [
     'volume_cylinder',
@@ -19,14 +19,14 @@ def volume_cylinder(h, r):
         float: The volume of the cylinder.
 
     Raises:
-        SVGeometryException: If any argument is nonpositive.
+        GeometryUtilsException: If any argument is nonpositive.
     '''
 
     if h <= 0:
-        raise SVGeometryException('Height must be positive')
+        raise GeometryUtilsException('Height must be positive')
 
     if r <= 0:
-        raise SVGeometryException('Radius must be positive')
+        raise GeometryUtilsException('Radius must be positive')
 
     return math.pi * r * r * h
 
@@ -41,14 +41,14 @@ def volume_cone(h, r):
         float: The volume of the cone.
 
     Raises:
-        SVGeometryException: If any argument is nonpositive.
+        GeometryUtilsException: If any argument is nonpositive.
     '''
 
     if h <= 0:
-        raise SVGeometryException('Height must be positive')
+        raise GeometryUtilsException('Height must be positive')
 
     if r <= 0:
-        raise SVGeometryException('Radius must be positive')
+        raise GeometryUtilsException('Radius must be positive')
 
     return volume_cylinder(h, r) / 3
 
@@ -66,16 +66,16 @@ def volume_frustum(h, r, R):
         float: The volume of the frustum.
 
     Raises:
-        SVGeometryException: If any argument is nonpositive.
+        GeometryUtilsException: If any argument is nonpositive.
     '''
 
     if h <= 0:
-        raise SVGeometryException('Height must be positive')
+        raise GeometryUtilsException('Height must be positive')
 
     if r <= 0:
-        raise SVGeometryException('Lower radius must be positive')
+        raise GeometryUtilsException('Lower radius must be positive')
 
     if R <= 0:
-        raise SVGeometryException('Upper radius must be positive')
+        raise GeometryUtilsException('Upper radius must be positive')
 
     return math.pi * h / 3 * (r*r + R*R + r*R)
