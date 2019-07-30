@@ -4,14 +4,14 @@ __all__ = [
     'split_trapezium'
 ]
 
-def split_trapezium(R, r, H, h):
+def split_trapezium(r_top, r_bottom, H, h):
     '''Split a trapezium in two halves.
 
     It is expected to be a right trapezium, i.e. its apex is at its center.
 
     Arguments:
-        R (float): Upper radius of the trapezium.
-        r (float): Lower radius of the trapezium.
+        r_top (float): Upper radius of the trapezium.
+        r_bottom (float): Lower radius of the trapezium.
         H (float): Height of the trapezium.
         h (float): Height where the trapezium must be splitted.
 
@@ -26,10 +26,10 @@ def split_trapezium(R, r, H, h):
         is greater than "H".
     '''
 
-    if r <= 0:
+    if r_bottom <= 0:
         raise SVGeometryException('"r" must be greater than 0')
 
-    if R <= 0:
+    if r_top <= 0:
         raise SVGeometryException('"R" must be greater than 0')
 
     if H <= 0:
@@ -41,9 +41,9 @@ def split_trapezium(R, r, H, h):
     if H < h:
         raise SVGeometryException('"H" must be greater than "h"')
 
-    x1 = R
+    x1 = r_top
     y1 = 0.0
-    x2 = r
+    x2 = r_bottom
     y2 = H
 
     a = (y2 - y1) / (x2 - x1)
@@ -52,6 +52,6 @@ def split_trapezium(R, r, H, h):
     r_apos = ((h - b) / a)
 
     return {
-        'upper': { 'upper_radius': r, 'lower_radius': r_apos, 'H': H - h },
-        'lower': { 'upper_radius': r_apos, 'lower_radius': R, 'H': h },
+        'upper': { 'upper_radius': r_top, 'lower_radius': r_apos, 'H': H - h },
+        'lower': { 'upper_radius': r_apos, 'lower_radius': r_bottom, 'H': h },
     }
