@@ -13,7 +13,19 @@ class Bidimensional(unittest.TestCase):
             'lower': { 'upper_radius': 15, 'lower_radius': 20, 'H': 10 },
         }
 
-        actual = bidimensional.split_trapezium(20, 10, 20, 10)
+        actual = bidimensional.split_trapezium(10, 20, 20, 10)
+
+        self.assertEqual(expected, actual)
+
+        expected = {
+            'upper': { 'upper_radius': 1, 'lower_radius': 1+(3-1)*(1/3), 'H': 2 },
+            'lower': { 'upper_radius': 1+(3-1)*(1/3), 'lower_radius': 3, 'H': 1 },
+        }
+
+        actual = bidimensional.split_trapezium(1, 3, 3, 1)
+
+        print(expected['upper'])
+        print(actual['upper'])
 
         self.assertEqual(expected, actual)
 
