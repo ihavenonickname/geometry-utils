@@ -28,6 +28,13 @@ class Tridimensional(unittest.TestCase):
 
         self.assertAlmostEqual(actual, expected, places=1)
 
+    def test_height_right_frustum(self):
+        expected = 0.177
+
+        actual = tridimensional.height_frustum(25, 1, 20)
+
+        self.assertAlmostEqual(actual, expected, places=1)
+
     def test_volume_cone_should_fail_with_negative_parameters(self):
         with self.assertRaises(GeometryUtilsException):
             tridimensional.volume_cone(-10, 10)
@@ -43,6 +50,16 @@ class Tridimensional(unittest.TestCase):
                 tridimensional.volume_cylinder(10, -10)
 
     def test_volume_right_frustum_should_fail_with_negative_parameters(self):
+            with self.assertRaises(GeometryUtilsException):
+                tridimensional.volume_frustum(-10, 1, 10)
+
+            with self.assertRaises(GeometryUtilsException):
+                tridimensional.volume_frustum(10, -1, 10)
+
+            with self.assertRaises(GeometryUtilsException):
+                tridimensional.volume_frustum(10, 1, -10)
+
+    def test_height_right_frustum_should_fail_with_negative_parameters(self):
             with self.assertRaises(GeometryUtilsException):
                 tridimensional.volume_frustum(-10, 1, 10)
 
